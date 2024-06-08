@@ -8,7 +8,7 @@
 
 Uma academia de artes marciais chamada "KIAI-KAN" deseja implementar um sistema de gerenciamento para armazenar informações sobre seus alunos e instrutores. A empresa pretende melhorar o atendimento ao aluno e manter um registro organizado das aulas, matrículas e agendamentos de instrutores, o que inclui informações detalhadas sobre cada transação.
 
-### Entidades, Atributos e Relacionamentos
+### 📝 Entidades, Atributos e Relacionamentos
 
 #### Entidade: Aluno
 - **ID do Aluno (Chave Primária)**
@@ -64,7 +64,7 @@ entre Aluno e Sensei
 Um aluno pode ter vários Senseis e Senseis podem ter vários alunos
 
 
-# 2. Modelagem Conceitual
+# 2. 📊 Modelagem Conceitual
 
 ## Diagrama ER
 
@@ -77,14 +77,14 @@ Um aluno pode ter vários Senseis e Senseis podem ter vários alunos
 - As relações entre as entidades estão bem definidas, incluindo cardinalidades apropriadas.
 
 
-# 3. Modelagem Lógica
+# 3. 📋 Modelagem Lógica
 
 ## Diagrama Lógico
 ![image](https://github.com/ITzspi/prova-sql/assets/141787351/57038ca5-8c25-45c8-a933-e86c2356bb05)
 
 
 
-### 4. Modelagem Física
+### 4. 💻 Modelagem Física
 
 ```markdown
 # 4. Modelagem Física
@@ -150,7 +150,7 @@ CREATE TABLE AlunoSensei (
 );
 ```
 
-### 5. Inserção de Dados
+### 5. 📥 Inserção de Dados
 
 ```markdown
 # 5. Inserção de Dados
@@ -302,7 +302,7 @@ VALUES
 (20, 1);
 ```
 
-### 6. CRUD
+### 6. 🛠️ CRUD
 
 ```markdown
 # 6. CRUD
@@ -378,7 +378,7 @@ SELECT * FROM AlunoSensei;
 ![image](https://github.com/ITzspi/prova-sql/assets/141787351/741715d7-f3e9-489d-a6a5-ce98ac8bf223)
 
 
-### 7. Relatórios
+### 7. 📊 Relatórios
 
 ```markdown
 # 7. Relatórios
