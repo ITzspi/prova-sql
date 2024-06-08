@@ -76,3 +76,77 @@ Um aluno pode ter vários Senseis e Senseis podem ter vários alunos
 - O diagrama mostra as entidades Aluno, Sensei, Aula, Matrícula e Agendamento.
 - As relações entre as entidades estão bem definidas, incluindo cardinalidades apropriadas.
 
+
+# 3. Modelagem Lógica
+
+## Diagrama Lógico
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/f93762f1-4431-42b4-835c-2ad2521301c0)
+
+
+### 4. Modelagem Física
+
+```markdown
+# 4. Modelagem Física
+
+## Código SQL para criação das tabelas
+
+```sql
+-- Tabela Aluno
+CREATE TABLE Aluno (
+    ID_Aluno INT PRIMARY KEY,
+    Nome VARCHAR(100),
+    Endereco_Rua VARCHAR(100),
+    Endereco_Cidade VARCHAR(100),
+    Endereco_CEP VARCHAR(20),
+    Telefone VARCHAR(20),
+    Data_Nasc DATE
+);
+
+-- Tabela Sensei
+CREATE TABLE Sensei (
+    ID_Instrutor INT PRIMARY KEY,
+    Nome VARCHAR(100),
+    Telefone VARCHAR(20),
+    Salario DECIMAL(10, 2),
+    Especialidade VARCHAR(100)
+);
+
+-- Tabela Aula
+CREATE TABLE Aula (
+    ID_Aula INT PRIMARY KEY,
+    Nome_Aula VARCHAR(100),
+    Data_Hora DATETIME,
+    Duracao TIME,
+    Equipamentos_Necessarios VARCHAR(200) -- Representação simplificada para o multivalorado
+);
+
+-- Tabela Matricula
+CREATE TABLE Matricula (
+    ID_Matricula INT PRIMARY KEY,
+    Data_Matricula DATE,
+    ID_Aluno INT,
+    ID_Aula INT,
+    FOREIGN KEY (ID_Aluno) REFERENCES Aluno(ID_Aluno),
+    FOREIGN KEY (ID_Aula) REFERENCES Aula(ID_Aula)
+);
+
+-- Tabela Agendamento
+CREATE TABLE Agendamento (
+    ID_Agendamento INT PRIMARY KEY,
+    Data_Hora_Agendamento DATETIME,
+    ID_Instrutor INT,
+    ID_Aula INT,
+    FOREIGN KEY (ID_Instrutor) REFERENCES Sensei(ID_Instrutor),
+    FOREIGN KEY (ID_Aula) REFERENCES Aula(ID_Aula)
+);
+
+-- Tabela Associativa AlunoSensei
+CREATE TABLE AlunoSensei (
+    ID_Aluno INT,
+    ID_Instrutor INT,
+    PRIMARY KEY (ID_Aluno, ID_Instrutor),
+    FOREIGN KEY (ID_Aluno) REFERENCES Aluno(ID_Aluno),
+    FOREIGN KEY (ID_Instrutor) REFERENCES Sensei(ID_Instrutor)
+);
+
+
