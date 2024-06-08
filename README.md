@@ -69,7 +69,7 @@ Um aluno pode ter vários Senseis e Senseis podem ter vários alunos
 
 ## Diagrama ER
 
-![Modelagem Conceitual](![image](https://github.com/ITzspi/prova-sql/assets/141787351/e5823005-c861-4d66-a923-be22e2381618)
+(![image](https://github.com/ITzspi/prova-sql/assets/141787351/e5823005-c861-4d66-a923-be22e2381618)
 
 
 **Descrição do Diagrama ER**: 
