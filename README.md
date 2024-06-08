@@ -16,7 +16,6 @@ Uma academia de artes marciais chamada "KIAI-KAN" deseja implementar um sistema 
 - **Endereço (Composto: Rua, Cidade, CEP)**
 - **Telefone**
 - **Data de Nascimento**
-- **Graduações Anteriores (Multivalorado)**
 
 #### Entidade: Instrutor
 - **ID do Instrutor (Chave Primária)**
