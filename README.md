@@ -42,3 +42,37 @@ Uma academia de artes marciais chamada "KIAI-KAN" deseja implementar um sistema 
 - **Data e Hora do Agendamento**
 - **ID do Instrutor**
 - **ID da Aula**
+
+#### Relacionamentos
+Relacionamento 1
+Entre Aluno e Matricula:
+Um aluno pode ter várias matrículas, mas uma matrícula pertence a apenas um aluno.
+
+Relacionamento 2
+entre Aula e Matricula:
+Uma aula pode ter várias matrículas, mas uma matrícula está associada a apenas uma aula.
+
+Relacionamento 3
+entre Sensei e Agendamento:
+Um Sensei pode ter vários agendamentos, mas um agendamento está associado a apenas um instrutor.
+
+Relacionamento 4
+entre Aula e Agendamento:
+Uma aula pode ter um agendamento e um agendamento está associado a apenas uma aula.
+
+Relacionamento 5
+entre Aluno e Sensei
+Um aluno pode ter vários Senseis e Senseis podem ter vários alunos
+
+
+# 2. Modelagem Conceitual
+
+## Diagrama ER
+
+![Modelagem Conceitual](![image](https://github.com/ITzspi/prova-sql/assets/141787351/e5823005-c861-4d66-a923-be22e2381618)
+
+
+**Descrição do Diagrama ER**: 
+- O diagrama mostra as entidades Aluno, Sensei, Aula, Matrícula e Agendamento.
+- As relações entre as entidades estão bem definidas, incluindo cardinalidades apropriadas.
+
