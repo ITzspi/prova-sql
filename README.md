@@ -302,4 +302,22 @@ VALUES
 (20, 1);
 ```
 
+### 6. CRUD
+
+```markdown
+# 6. CRUD
+
+## Código SQL para operações CRUD
+
+### Inserção
+
+```sql
+-- Inserir novo aluno
+INSERT INTO Aluno (ID_Aluno, Nome, Endereco_Rua, Endereco_Cidade, Endereco_CEP, Telefone, Data_Nasc)
+VALUES (21, 'Laura Lima', 'Rua das Flores', 'São Paulo', '01234-567', '11987654321', '2000-09-18');
+
+SELECT * FROM Aluno WHERE ID_Aluno = 21;
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/798d5b10-4a5b-44a8-bc85-72aabee55bec)
+
+
 
