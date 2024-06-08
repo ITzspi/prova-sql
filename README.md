@@ -17,7 +17,7 @@ Uma academia de artes marciais chamada "KIAI-KAN" deseja implementar um sistema 
 - **Telefone**
 - **Data de Nascimento**
 
-#### Entidade: Instrutor
+#### Entidade: Sensei
 - **ID do Instrutor (Chave Primária)**
 - **Nome**
 - **Telefone**
