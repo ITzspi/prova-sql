@@ -27,7 +27,6 @@ Uma academia de artes marciais chamada "KIAI-KAN" deseja implementar um sistema 
 #### Entidade: Aula
 - **ID da Aula (Chave Primária)**
 - **Nome da Aula**
-- **Descrição**
 - **Data e Hora**
 - **Duração**
 - **Equipamentos Necessários (Multivalorado)**
