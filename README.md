@@ -307,17 +307,212 @@ VALUES
 ```markdown
 # 6. CRUD
 
-## Código SQL para operações CRUD
+## Tabela Aluno
+
+### Leitura
+-- Selecionar todos os alunos
+SELECT * FROM Aluno;
 
 ### Inserção
-
-```sql
 -- Inserir novo aluno
 INSERT INTO Aluno (ID_Aluno, Nome, Endereco_Rua, Endereco_Cidade, Endereco_CEP, Telefone, Data_Nasc)
 VALUES (21, 'Laura Lima', 'Rua das Flores', 'São Paulo', '01234-567', '11987654321', '2000-09-18');
-
 SELECT * FROM Aluno WHERE ID_Aluno = 21;
-![image](https://github.com/ITzspi/prova-sql/assets/141787351/798d5b10-4a5b-44a8-bc85-72aabee55bec)
+
+### Atualização
+-- Atualizar telefone do aluno
+UPDATE Aluno
+SET Telefone = '321321321'
+WHERE ID_Aluno = 3;
+SELECT * FROM Aluno WHERE ID_Aluno = 3;
+
+### Deleção
+-- Deletar aluno
+DELETE FROM Matricula
+WHERE ID_Aluno = 3;
+SELECT * FROM Matricula WHERE ID_Aluno = 3;
+
+
+```
+### Leitura
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/59d9e71a-e7e5-459b-bc58-2128fa0fb902)
+
+
+### Inserção
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/a268f835-3770-4de7-b0d6-7363d8a10047)
+
+### Atualização
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/36d65296-4771-49ca-94b3-37f1f327ff9b)
+
+### Deleção
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/6b9308ef-9de6-4875-b5ad-af9c10bf5819)
+
+```markdown
+## Tabela Sensei
+SELECT * FROM Sensei;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/feb5ccab-10be-474a-8b63-43126631399b)
+
+```markdown
+## Tabela Aula
+SELECT * FROM Aula;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/4b944aa8-a3c3-40d8-bdb9-86f9a0929414)
+
+```markdown
+## Tabela Matricula
+SELECT * FROM Matricula;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/7440b428-7cc8-4a7e-9c10-620d683c017f)
+
+```markdown
+## Tabela Agendamento
+SELECT * FROM Agendamento;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/c051d491-e742-44b6-8965-4c05a4114dd4)
+
+```markdown
+## Tabela AlunoSensei
+SELECT * FROM AlunoSensei;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/741715d7-f3e9-489d-a6a5-ce98ac8bf223)
+
+
+### 7. Relatórios
+
+```markdown
+# 7. Relatórios
+
+## Código SQL para relatórios
+
+```sql
+--1 Listar todos os alunos matriculados em uma determinada aula, ordenados pelo nome do aluno:
+SELECT Aluno.Nome, Aula.Nome_Aula
+FROM Aluno
+INNER JOIN Matricula ON Aluno.ID_Aluno = Matricula.ID_Aluno
+INNER JOIN Aula ON Matricula.ID_Aula = Aula.ID_Aula
+WHERE Aula.ID_Aula = 1
+ORDER BY Aluno.Nome;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/22acb4c1-349f-462d-bfdc-8a6ded317661)
+
+```markdown
+```sql
+-- 1 Listar os instrutores que estão agendados para uma determinada aula, ordenados pelo nome do instrutor:
+SELECT Sensei.Nome, Aula.Nome_Aula
+FROM Sensei
+INNER JOIN Agendamento ON Sensei.ID_Instrutor = Agendamento.ID_Instrutor
+INNER JOIN Aula ON Agendamento.ID_Aula = Aula.ID_Aula
+WHERE Aula.ID_Aula = 1
+ORDER BY Sensei.Nome;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/72896d97-c061-4efa-ba8a-37f9b5231b34)
+
+```markdown
+```sql
+-- 3 Listar todas as aulas de um instrutor específico, ordenadas pela data e hora da aula:
+SELECT Aula.Nome_Aula, Aula.Data_Hora
+FROM Aula
+INNER JOIN Agendamento ON Aula.ID_Aula = Agendamento.ID_Aula
+INNER JOIN Sensei ON Agendamento.ID_Instrutor = Sensei.ID_Instrutor
+WHERE Sensei.ID_Instrutor = 1
+ORDER BY Aula.Data_Hora;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/9d2ba16b-cba0-4f24-835d-9056314f1768)
+
+```markdown
+```sql
+-- 4 Listar todos os alunos matriculados em aulas de Karatê, ordenados pelo nome do aluno:
+SELECT Aluno.Nome, Aula.Nome_Aula
+FROM Aluno
+INNER JOIN Matricula ON Aluno.ID_Aluno = Matricula.ID_Aluno
+INNER JOIN Aula ON Matricula.ID_Aula = Aula.ID_Aula
+WHERE Aula.Nome_Aula LIKE '%Karatê%'
+ORDER BY Aluno.Nome;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/12892dc7-5577-4833-84a0-f3e7141ef9a5)
+
+```markdown
+```sql
+-- 5 Listar os instrutores que ministram aulas de Judô, ordenados pelo nome do instrutor:
+SELECT Sensei.Nome, Aula.Nome_Aula
+FROM Sensei
+INNER JOIN Agendamento ON Sensei.ID_Instrutor = Agendamento.ID_Instrutor
+INNER JOIN Aula ON Agendamento.ID_Aula = Aula.ID_Aula
+WHERE Aula.Nome_Aula LIKE '%Judô%'
+ORDER BY Sensei.Nome;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/13f7f064-1fd1-48c6-a9be-7fb726d9d832)
+
+```markdown
+```sql
+-- 6 Listar todas as aulas que ocorrerão em determinada cidade, ordenadas pela data e hora da aula:
+SELECT Aula.Nome_Aula, Aula.Data_Hora
+FROM Aula
+INNER JOIN Agendamento ON Aula.ID_Aula = Agendamento.ID_Aula
+INNER JOIN Sensei ON Agendamento.ID_Instrutor = Sensei.ID_Instrutor
+WHERE Sensei.Especialidade = 'Jiu-Jitsu'
+ORDER BY Aula.Data_Hora;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/e4bea54b-86a6-4286-a28d-777680a14035)
+
+```markdown
+```sql
+-- 7 Listar os alunos que moram em uma determinada cidade, ordenados pelo nome do aluno:
+SELECT Aluno.Nome, Aluno.Endereco_Cidade
+FROM Aluno
+WHERE Aluno.Endereco_Cidade = 'São Paulo'
+ORDER BY Aluno.Nome;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/3fa2f2ee-26de-430a-a122-de37690bcb0b)
+
+```markdown
+```sql
+-- 8 Listar os instrutores que têm salário superior a R$ 3500, ordenados pelo salário em ordem decrescente:
+SELECT Sensei.Nome, Sensei.Salario
+FROM Sensei
+WHERE Sensei.Salario > 3500
+ORDER BY Sensei.Salario DESC;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/3f38f3a5-d298-4eec-a65d-bcee259e018e)
+
+```markdown
+```sql
+-- 9 Listar todas as matrículas feitas após uma determinada data, ordenadas pela data da matrícula:
+SELECT Aluno.Nome, Matricula.Data_Matricula
+FROM Aluno
+INNER JOIN Matricula ON Aluno.ID_Aluno = Matricula.ID_Aluno
+WHERE Matricula.Data_Matricula > '2023-07-01'
+ORDER BY Matricula.Data_Matricula;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/948524b6-b369-4dde-870e-a0aafc1593ad)
+
+```markdown
+```sql
+-- Listar todos os alunos que estão matriculados em aulas agendadas por um instrutor específico, ordenados pelo nome do aluno:
+  SELECT Aluno.Nome, Aula.Nome_Aula, Sensei.Nome AS Nome_Instrutor, Agendamento.Data_Hora_Agendamento
+    FROM Aluno
+    INNER JOIN Matricula ON Aluno.ID_Aluno = Matricula.ID_Aluno
+    INNER JOIN Aula ON Matricula.ID_Aula = Aula.ID_Aula
+    INNER JOIN Agendamento ON Aula.ID_Aula = Agendamento.ID_Aula
+    INNER JOIN Sensei ON Agendamento.ID_Instrutor = Sensei.ID_Instrutor
+    WHERE Sensei.ID_Instrutor = 1
+    ORDER BY Aluno.Nome;
+```
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/c7984291-42c5-41fa-a9c4-0d232fc630b5)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
