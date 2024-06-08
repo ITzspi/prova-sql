@@ -34,11 +34,11 @@ Uma academia de artes marciais chamada "KIAI-KAN" deseja implementar um sistema 
 #### Entidade: Matrícula
 - **ID da Matrícula (Chave Primária)**
 - **Data da Matrícula**
-- **ID do Aluno (Chave Estrangeira)**
-- **ID da Aula (Chave Estrangeira)**
+- **ID do Aluno**
+- **ID da Aula**
 
 #### Entidade: Agendamento
 - **ID do Agendamento (Chave Primária)**
 - **Data e Hora do Agendamento**
-- **ID do Instrutor (Chave Estrangeira)**
-- **ID da Aula (Chave Estrangeira)**
+- **ID do Instrutor**
+- **ID da Aula**
