@@ -28,7 +28,6 @@ Uma academia de artes marciais chamada "KIAI-KAN" deseja implementar um sistema 
 - **ID da Aula (Chave Primária)**
 - **Nome da Aula**
 - **Data e Hora**
-- **Duração**
 - **Equipamentos Necessários (Multivalorado)**
 
 #### Entidade: Matrícula
@@ -69,7 +68,8 @@ Um aluno pode ter vários Senseis e Senseis podem ter vários alunos
 
 ## Diagrama ER
 
-![image](https://github.com/ITzspi/prova-sql/assets/141787351/4f22fc50-eb0c-42ff-b6fc-8a0ec003f0b7)
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/5d811d69-9509-4fa1-b4d1-ad9c9cde667c)
+
 
 
 **Descrição do Diagrama ER**: 
@@ -80,7 +80,8 @@ Um aluno pode ter vários Senseis e Senseis podem ter vários alunos
 # 3. Modelagem Lógica
 
 ## Diagrama Lógico
-![image](https://github.com/ITzspi/prova-sql/assets/141787351/f93762f1-4431-42b4-835c-2ad2521301c0)
+![image](https://github.com/ITzspi/prova-sql/assets/141787351/57038ca5-8c25-45c8-a933-e86c2356bb05)
+
 
 
 ### 4. Modelagem Física
@@ -116,7 +117,6 @@ CREATE TABLE Aula (
     ID_Aula INT PRIMARY KEY,
     Nome_Aula VARCHAR(100),
     Data_Hora DATETIME,
-    Duracao TIME,
     Equipamentos_Necessarios VARCHAR(200) -- Representação simplificada para o multivalorado
 );
 
